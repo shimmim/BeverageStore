@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <link th:rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css"/>
+    <title>Order Details</title>
+</head>
+<body>
+<div th:replace="fragments/header.html :: header"></div>
+<div id="boxes">
+    <div id="centered-div">
+        <h1> Order Details </h1>
+    </div>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th>position</th>
+        <th>Item Name</th>
+        <th>Item Price</th>
+        <th>Item Quantity</th>
+        <th>Item picture</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${items}">
+        <td class="desc" th:text="${item.name}"></td>
+        <td class="unit" th:text="${item.price}"></td>
+        <td class="qty" th:text="${item.quantity}"></td>
+        <td><img width="100px" th:src="${item.pic}"/></td>
+    </tr>
+    </tbody>
+</table>
+
+<table>
+    <thead>
+    <tr>
+        <th> Total </th>
+    </tr>
+
+    </thead>
+    <tr>
+        <td class="total" th:text="${item.TotalPrice}"></td>
+    </tr>
+
+</table>
+
+
+<div id="legalcopy">
+    <p class="legal"><strong>Thank you for your shopping!</strong>
+    </p>
+</div>
+</body>
+</html>
